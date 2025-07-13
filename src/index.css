@@ -7,7 +7,80 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.bg-aliceblue {
+  background-color: aliceblue !important;
+}
+
+.box-shadow {
+  box-shadow: 0 4px 12px rgb(101 101 101)
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+input.form-control:focus, textarea.form-control:focus {
+  box-shadow: none
+}
+
+input.form-control, textarea.form-control {
+  border: 0;
+  border-radius: 0;
+  padding: 0
+}
+
+textarea.form-control {
+  overflow: hidden;
+  resize: none
+}
+
+input.form-control {
+  border-bottom: 2px solid #000;
+}
+
+.new-translation-btn::before {
+  content: '+';
+  position: absolute;
+  right: 1rem;
+  font-size: 3rem;
+  font-weight: bolder;
+  bottom: -0.1em;
+  color: #848484;
+  cursor: pointer
+}
+
+.edit-translation, .save-translation, .decline, .remove {
+  cursor: pointer;
+  top: .25em;
+  right: .75em
+}
+
+.edit-translation::after {
+  content: "\270E"
+}
+
+.edit-translation {
+  right: 2em
+}
+
+.save-translation::after {
+  content: "\2714"
+}
+
+.save-translation {
+  right: 2.5em
+}
+
+.decline::after {
+  content: "\2716"
+}
+
+.remove::after {
+  content: "\2715";
+  color: #ff0000;
+  font-weight: bolder
+}
+
+.btn-import {
+  right: 1.2rem;
 }

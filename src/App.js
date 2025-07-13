@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Folder from './componets/Folder/Folder';
+import Folders from './componets/Folders/Folders';
+import TranslationSet from './componets/TranslationSet/TranslationSet'
+import ImportTranslationSet from './componets/ImportTranslationSet/ImportTranslationSet';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="justify-center">
+        <div className="container position-relative my-5 rounded-3 w-50 p-3" style={{ backgroundColor: "#f6f7fb" }}>
+          <div className="position-absolute end-0 mx-3">
+            <a href="/import" className="btn btn-outline-primary mx-1">Import</a>
+          </div>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/">
+                <Route index element={<Folders />} />
+                <Route path="folders/:key" element={<Folder />} />
+                <Route path="import" element={<ImportTranslationSet />} />
+                <Route path="sets/:key" element={<TranslationSet />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </div>
+      </div>
     </div>
   );
 }
