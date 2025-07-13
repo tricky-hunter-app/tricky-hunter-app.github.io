@@ -17,9 +17,9 @@ function App() {
             <Routes>
               <Route path="/">
                 <Route index element={<Folders />} />
-                <Route path="folders/:key" element={<Folder />} />
+                <Route path="folders/:folderId" element={<Folder />} />
                 <Route path="import" element={<ImportTranslationSet />} />
-                <Route path="sets/:key" element={<TranslationSet />} />
+                <Route path="sets/:setId" element={<TranslationSet />} />
               </Route>
             </Routes>
           </BrowserRouter>

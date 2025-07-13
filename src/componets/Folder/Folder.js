@@ -6,15 +6,13 @@ import { get, query, ref, orderByChild, equalTo } from "firebase/database";
 const FIREBASE_SET_PATH = 'sets';
 
 function Folders() {
-  const { key } = useParams();
+  const { folderId } = useParams();
   const [translationSets, setTranslationSets] = useState([]);
 
   useEffect(() => {
-    console.log("Key: " + key);
-
     const fetchData = async () => {
       const setsRef = ref(database, FIREBASE_SET_PATH);
-      const q = query(setsRef, orderByChild("folderId"), equalTo(key));
+      const q = query(setsRef, orderByChild("folderId"), equalTo(folderId));
 
       const snapshot = await get(q);
 
@@ -34,7 +32,7 @@ function Folders() {
       <>
         <h4 className="mb-4 mx-1">Translation Sets:</h4>
         <div class="list-group">
-          {Object.keys(translationSets).map(key => <Link to={`/sets/${key}`} class="list-group-item list-group-item-action">{translationSets[key].title}</Link>)}
+          {Object.keys(translationSets).map(setId => <Link to={`/sets/${setId}`} class="list-group-item list-group-item-action">{translationSets[setId].title}</Link>)}
         </div>
       </>
     );

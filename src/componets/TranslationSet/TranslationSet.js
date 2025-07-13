@@ -8,7 +8,7 @@ import NewTranslation from '../NewTranslation/NewTranslation';
 const FIREBASE_SET_PATH = 'sets';
 
 function TranslationSet() {
-  const { key } = useParams();
+  const { setId } = useParams();
   const bottomRef = useRef(null);
 
   const [showTerms, setShowTerms] = useState(true);
@@ -28,7 +28,7 @@ function TranslationSet() {
   };
 
   const saveNewTranslation = async (translation) => {
-    await set(ref(database, `${FIREBASE_SET_PATH}/${key}/translations`), [...translations, translation]);
+    await set(ref(database, `${FIREBASE_SET_PATH}/${setId}/translations`), [...translations, translation]);
 
     setTranslations(prev => [...prev, translation]);
   }
@@ -79,7 +79,7 @@ function TranslationSet() {
     translation.term = term;
     translation.definition = definition;
 
-    await update(ref(database, `${FIREBASE_SET_PATH}/${key}/translations/${id}`), translation);
+    await update(ref(database, `${FIREBASE_SET_PATH}/${setId}/translations/${id}`), translation);
 
     setTranslations((prev, index) =>
       prev.map(t => (index === id ? { ...t, term, definition } : t))
@@ -89,14 +89,14 @@ function TranslationSet() {
   const deleteTranslation = async (id) => {
     translations.splice(id, 1);
 
-    await set(ref(database, `${FIREBASE_SET_PATH}/${key}/translations`), translations);
+    await set(ref(database, `${FIREBASE_SET_PATH}/${setId}/translations`), translations);
 
     setTranslations(_ => [...translations]);;
   };
 
   useEffect(() => {
     const fetchData = async () => {
-      const snapshot = await get(ref(database, `${FIREBASE_SET_PATH}/${key}`));
+      const snapshot = await get(ref(database, `${FIREBASE_SET_PATH}/${setId}`));
       
       if (snapshot.exists()) {
         const data = snapshot.val();
