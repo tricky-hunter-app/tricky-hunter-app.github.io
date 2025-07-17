@@ -3,17 +3,17 @@ import Folder from './componets/Folder/Folder';
 import Folders from './componets/Folders/Folders';
 import TranslationSet from './componets/TranslationSet/TranslationSet'
 import ImportTranslationSet from './componets/ImportTranslationSet/ImportTranslationSet';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Link, BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
       <div className="justify-center">
         <div className="container position-relative my-5 rounded-3 w-50 p-3" style={{ backgroundColor: "#f6f7fb" }}>
-          <div className="position-absolute end-0 mx-3">
-            <a href="/import" className="btn btn-outline-primary mx-1">Import</a>
-          </div>
           <BrowserRouter>
+            <div className="position-absolute end-0 mx-3">
+              <Link to="import" className="btn btn-outline-primary mx-1">Import</Link>
+            </div>
             <Routes>
               <Route path="/">
                 <Route index element={<Folders />} />

@@ -26,8 +26,8 @@ function Folders() {
   return (
       <>
         <h4 className="mb-4 mx-1">Folders:</h4>
-        <div class="list-group">
-          {Object.keys(folders).map(key => <Link to={`folders/${key}`} class="list-group-item list-group-item-action">{folders[key].name}</Link>)}
+        <div className="list-group">
+          {Object.keys(folders).map(key => <Link to={`folders/${key}`} className="list-group-item list-group-item-action">{folders[key].name}</Link>)}
         </div>
       </>
     );
