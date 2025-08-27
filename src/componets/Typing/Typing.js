@@ -23,7 +23,7 @@ function Typing() {
 
       if (snapshot.exists()) {
         const data = snapshot.val();
-        const translations = data.translations;
+        const translations = shuffle(data.translations);
 
         setTranslations(translations);
       } else {
@@ -33,6 +33,23 @@ function Typing() {
 
     fetchData();
   }, []);
+
+  const shuffle = (array) => {
+    let currentIndex = array.length;
+
+    while (currentIndex !== 0) {
+      const randomIndex = Math.floor(Math.random() * currentIndex);
+
+      currentIndex--;
+
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+
+    return array;
+  };
 
   const handleTermInput = (e) => {
     if (e.key !== "Enter") {
@@ -46,7 +63,7 @@ function Typing() {
 
     if (currentTerm === incomingTerm) {
       setMismatchedTerm("");
-      
+
       if (translations.length <= currentPosition + 1) {
         navigate(`/sets/${setId}`);
       } else {
