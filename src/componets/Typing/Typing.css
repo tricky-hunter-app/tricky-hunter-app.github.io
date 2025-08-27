@@ -1,0 +1,24 @@
+.typing-container {
+    background-color: rgb(246, 247, 251);
+    width: 50%;
+    height: 30rem;
+    left: 25%;
+    top: 6%;
+}
+
+.typing-container .definition {
+    margin-top: 15%;
+    font-size: 3rem;
+}
+
+.typing-container .typing-section {
+    bottom: 7rem;
+}
+
+.typing-section .form-control {
+  background-color: rgb(246, 247, 251);
+}
+
+.typing-section .form-control:focus {
+  background-color: rgb(246, 247, 251);
+}

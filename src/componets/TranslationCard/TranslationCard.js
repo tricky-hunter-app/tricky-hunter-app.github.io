@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 function TranslationCard({ index, translation, onRevealTerm, onRevealDefinition, onSave, onDelete }) {
     const [editMode, setEditMode] = useState(false);
@@ -40,12 +40,12 @@ function TranslationCard({ index, translation, onRevealTerm, onRevealDefinition,
             />
           )}
         </div>
-  
+
         <div
-          className={`position-relative col-8 bg-white p-4 rounded-end-2 ${translation.hideDefinition ? "cursor-pointer" : ""}`}
+          className={`position-relative col-8 border-start bg-white p-4 rounded-end-2 ${translation.hideDefinition ? "cursor-pointer" : ""}`}
           onClick={() => onRevealDefinition(index)}
         >
-          <div className="border-start ps-4">
+          <>
             {!editMode ? (
               <span className={translation.hideDefinition ? "text-white" : ""}>{translation.definition}</span>
             ) : (
@@ -62,7 +62,7 @@ function TranslationCard({ index, translation, onRevealTerm, onRevealDefinition,
                 required
               />
             )}
-          </div>
+          </>
   
           {!editMode && (
             <>

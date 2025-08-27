@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Folder from './componets/Folder/Folder';
 import Folders from './componets/Folders/Folders';
 import TranslationSet from './componets/TranslationSet/TranslationSet'
+import Typing from './componets/Typing/Typing'
 import ImportTranslationSet from './componets/ImportTranslationSet/ImportTranslationSet';
 import { Link, BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -20,6 +21,7 @@ function App() {
                 <Route path="folders/:folderId" element={<Folder />} />
                 <Route path="import" element={<ImportTranslationSet />} />
                 <Route path="sets/:setId" element={<TranslationSet />} />
+                <Route path="typing/:setId" element={<Typing />} />
               </Route>
             </Routes>
           </BrowserRouter>

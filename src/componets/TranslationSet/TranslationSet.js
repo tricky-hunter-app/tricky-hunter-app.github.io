@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { ref, get, update, set } from "firebase/database";
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import database from '../../firebase';
 import TranslationCard from '../TranslationCard/TranslationCard';
 import NewTranslation from '../NewTranslation/NewTranslation';
@@ -118,6 +118,9 @@ function TranslationSet() {
 
   return (
     <>
+      <div className="position-absolute mx-3" style={{ right: "5rem" }}>
+        <Link to={`/typing/${setId}`} className="btn btn-outline-primary mx-1">Practice</Link>
+      </div>
       <h4 className="mb-4 mx-1">{title}</h4>
       {translations.map((t, index) => (
         <TranslationCard
