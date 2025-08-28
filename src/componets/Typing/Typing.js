@@ -57,9 +57,13 @@ function Typing() {
     }
 
     const currentTerm = translations[currentPosition].term
+      .replace(/[^a-zA-Z0-9 ,]/g, "")
       .trimEnd()
       .toLowerCase();
-    const incomingTerm = termInput.trimEnd().toLowerCase();
+    const incomingTerm = termInput
+      .replace(/[^a-zA-Z0-9 ,]/g, "")
+      .trimEnd()
+      .toLowerCase();
 
     if (currentTerm === incomingTerm) {
       setMismatchedTerm("");
