@@ -57,11 +57,11 @@ function Typing() {
     }
 
     const currentTerm = translations[currentPosition].term
-      .replace(/[^a-zA-Z0-9 ,]/g, "")
+      .replace(/[^a-zA-Z0-9 äöüõšžÄÖÜÕŠŽ,-]/g, "")
       .trimEnd()
       .toLowerCase();
     const incomingTerm = termInput
-      .replace(/[^a-zA-Z0-9 ,]/g, "")
+      .replace(/[^a-zA-Z0-9 äöüõšžÄÖÜÕŠŽ,-]/g, "")
       .trimEnd()
       .toLowerCase();
 
@@ -75,6 +75,7 @@ function Typing() {
       }
     } else {
       setMismatchedTerm(highlightMismatches(incomingTerm, currentTerm));
+      setTranslations(prev => [...prev, translations[currentPosition]])
     }
 
     setTermInput("");
