@@ -16,9 +16,20 @@
 }
 
 .typing-section .form-control {
+  font-size: 1.7rem;
   background-color: rgb(246, 247, 251);
 }
 
 .typing-section .form-control:focus {
+  border-color: #000;
   background-color: rgb(246, 247, 251);
+}
+
+.link-back {
+  color: #000;
+  text-decoration: none;
+}
+
+.link-back:hover {
+  color: #000;
 }

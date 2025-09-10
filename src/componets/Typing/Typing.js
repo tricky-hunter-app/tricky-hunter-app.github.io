@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ref, get } from "firebase/database";
-import { useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import database from "../../firebase";
 import "./Typing.css";
 
@@ -103,6 +103,9 @@ function Typing() {
   return (
     <>
       <div className="position-fixed typing-container rounded-3">
+        <div className="position-absolute" style={{ top: "1rem", left: "1.5rem" }}>
+          <Link to={`/sets/${setId}`} className="link-back">&larr; Back to set</Link>
+        </div>
         {(() => {
           if (translations.length) {
             return (
